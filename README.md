@@ -188,21 +188,11 @@ Veritas.AI/
 
 ### Screenshots
 
-```
-┌─────────────────────────────────────┐
-│  Landing Page                       │
-│  • Design moderno e minimalista     │
-│  • Apresentação dos avaliadores     │
-│  • Call-to-action para aplicação    │
-└─────────────────────────────────────┘
+<img width="1919" height="806" alt="image" src="https://github.com/user-attachments/assets/f6511380-3f16-4801-96d5-008a4cdd00e0" />
 
-┌─────────────────────────────────────┐
-│  Aplicação de Avaliação             │
-│  • Upload de arquivo ou texto       │
-│  • Interface intuitiva              │
-│  • Resultados em modal interativo   │
-└─────────────────────────────────────┘
-```
+
+<img width="1893" height="913" alt="image" src="https://github.com/user-attachments/assets/4e17b92d-a841-46cd-9393-ce7a3a99f561" />
+
 
 ---
 
