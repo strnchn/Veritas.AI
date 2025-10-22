@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas.AI - Conheça o Sistema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #1a1a1a;
+            --bg-darker: #0d0d0d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-pink: #ffccf6;
+            --accent-mint: #d4f4dd;
+            --accent-coral: #ffb3a7;
+            --accent-blue: #a8d8ea;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: var(--bg-darker);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-pink);
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            line-height: 1.6;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .option-card {
+            background-color: var(--bg-darker);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .option-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-pink);
+            box-shadow: 0 20px 40px rgba(255, 204, 246, 0.1);
+        }
+
+        .option-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .option-card:hover .option-icon {
+            transform: scale(1.1);
+        }
+
+        .option-card:nth-child(1) .option-icon {
+            background: linear-gradient(135deg, var(--accent-pink), #ffa8e8);
+        }
+
+        .option-card:nth-child(2) .option-icon {
+            background: linear-gradient(135deg, var(--accent-blue), #7ec8e3);
+        }
+
+        .option-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--bg-dark);
+        }
+
+        .option-title {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .option-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1rem;
+            color: var(--accent-pink);
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .footer {
+            background-color: var(--bg-darker);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.125rem;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo">Veritas.AI®</a>
+                <a href="/" class="back-link">← Voltar para Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="content-wrapper">
+            <h1 class="title">Conheça o Sistema</h1>
+            <p class="subtitle">Escolha como deseja explorar o Veritas.AI</p>
+
+            <div class="options-grid">
+                <a href="/app" class="option-card">
+                    <div class="option-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="option-title">Avaliar TCC</h2>
+                        <p class="option-description">Envie seu trabalho e receba uma análise completa de três avaliadores virtuais especializados</p>
+                    </div>
+                </a>
+
+                <a href="/api/docs" class="option-card">
+                    <div class="option-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="option-title">Documentação da API</h2>
+                        <p class="option-description">Explore nossa API REST completa com documentação interativa e exemplos de código</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="features-list">
+                <div class="feature">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    <h3 class="feature-title">Análise Rápida</h3>
+                    <p class="feature-text">Resultados em 30-60 segundos</p>
+                </div>
+
+                <div class="feature">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <h3 class="feature-title">IA Avançada</h3>
+                    <p class="feature-text">Powered by Perplexity AI</p>
+                </div>
+
+                <div class="feature">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <h3 class="feature-title">100% Funcional</h3>
+                    <p class="feature-text">Desenvolvido com FastAPI</p>
+                </div>
+
+                <div class="feature">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <h3 class="feature-title">Relatório Completo</h3>
+                    <p class="feature-text">Download em TXT</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Veritas.AI. Desenvolvido 100% em Python com FastAPI.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

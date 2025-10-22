@@ -15,6 +15,7 @@ Antes de começar, certifique-se de ter instalado:
 Se você recebeu o arquivo compactado, extraia-o:
 
 ```bash
+tar -xzf Veritas.AI-v1.0.0-completo.tar.gz
 cd Veritas.AI
 ```
 

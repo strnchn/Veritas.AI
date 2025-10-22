@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas.AI - Sistema de Avaliação de TCC com IA</title>
+    <meta name="description" content="Sistema de avaliação de TCC com inteligência artificial. Banca avaliadora virtual composta por três especialistas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/landing/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo">Veritas.AI®</a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#about" class="nav-link">Sobre</a>
+                    <a href="#evaluators" class="nav-link">Avaliadores</a>
+                    <a href="#how-it-works" class="nav-link">Como Funciona</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="/home" class="btn-nav">Conheça o Sistema</a>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <img src="/static/veritas_hero_image.jpg" alt="Veritas.AI Hero" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Veritas.AI®</h1>
+            <p class="hero-subtitle">Sistema de Avaliação de TCC com IA</p>
+            <p class="hero-description">Uma banca avaliadora virtual composta por três especialistas que analisam trabalhos acadêmicos de forma rigorosa e estruturada</p>
+            <div class="hero-buttons">
+                <a href="/home" class="btn-primary">Conheça o Sistema</a>
+                <a href="#about" class="btn-secondary">Saiba Mais</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Role para baixo</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Sobre o Projeto</span>
+                <h2 class="section-title">Avaliação Acadêmica Inteligente</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>O Veritas.AI é um sistema revolucionário que utiliza inteligência artificial avançada para avaliar Trabalhos de Conclusão de Curso (TCC) de forma objetiva, rigorosa e estruturada.</p>
+                    <p>Nossa plataforma simula uma banca avaliadora completa, analisando múltiplos aspectos do trabalho acadêmico: desde a metodologia científica até a conformidade com normas ABNT, passando pela originalidade do conteúdo e coerência científica.</p>
+                    <p>Desenvolvido com tecnologias de ponta como FastAPI e Perplexity AI, o Veritas.AI oferece uma análise profunda e detalhada em questão de minutos, fornecendo feedback valioso para estudantes e orientadores.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/static/veritas_ai_evaluation.jpg" alt="Avaliação com IA">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluators Section -->
+    <section class="section evaluators" id="evaluators">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Banca Avaliadora Virtual</span>
+                <h2 class="section-title">Quatro Critérios de Avaliação</h2>
+            </div>
+            <div class="evaluators-grid">
+                <div class="evaluator-card">
+                    <div class="evaluator-number">01</div>
+                    <h3>Metodologia</h3>
+                    <p>Avalia coerência metodológica, clareza dos objetivos e adequação dos métodos aplicados ao problema de pesquisa.</p>
+                    <span class="score">0-3 pontos</span>
+                </div>
+
+                <div class="evaluator-card">
+                    <div class="evaluator-number">02</div>
+                    <h3>Escrita Acadêmica</h3>
+                    <p>Verifica conformidade com normas ABNT, qualidade redacional e formatação adequada de citações e referências.</p>
+                    <span class="score">0-2 pontos</span>
+                </div>
+
+                <div class="evaluator-card">
+                    <div class="evaluator-number">03</div>
+                    <h3>Originalidade</h3>
+                    <p>Detecta possíveis indícios de plágio e avalia a originalidade da contribuição científica do trabalho.</p>
+                    <span class="score">0-2 pontos</span>
+                </div>
+
+                <div class="evaluator-card">
+                    <div class="evaluator-number">04</div>
+                    <h3>Coerência Científica</h3>
+                    <p>Avalia qualidade da base teórica, sustentação das conclusões e relevância científica do trabalho.</p>
+                    <span class="score">0-3 pontos</span>
+                </div>
+            </div>
+            <div class="final-score-info">
+                <h4>Nota Final: Soma de todos os critérios (máximo 10.0)</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Processo</span>
+                <h2 class="section-title">Como Funciona</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Envie seu TCC</h3>
+                    <p>Faça upload do seu trabalho em PDF, DOCX ou TXT, ou cole o texto diretamente na plataforma.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Processamento com IA</h3>
+                    <p>Nossa inteligência artificial analisa seu trabalho usando modelos avançados de linguagem natural.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Avaliação Completa</h3>
+                    <p>Três avaliadores virtuais analisam diferentes aspectos do seu trabalho de forma independente.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>Receba o Resultado</h3>
+                    <p>Visualize a nota final, análises detalhadas e recomendações para melhorar seu trabalho.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="section technologies">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Tecnologias</span>
+                <h2 class="section-title">Desenvolvido com o Melhor da Tecnologia</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <img src="/static/veritas_technology.jpg" alt="FastAPI">
+                    <h3>FastAPI</h3>
+                    <p>Framework web moderno e de alta performance para Python</p>
+                </div>
+                <div class="tech-card">
+                    <img src="/static/veritas_methodology.jpg" alt="Perplexity AI">
+                    <h3>Perplexity AI</h3>
+                    <p>Modelo de linguagem avançado Llama 3.1 para análise profunda</p>
+                </div>
+                <div class="tech-card">
+                    <img src="/static/veritas_results.jpg" alt="Python">
+                    <h3>Python 3.11</h3>
+                    <p>Linguagem robusta e versátil para processamento de dados</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Perguntas Frequentes</span>
+                <h2 class="section-title">Tire suas Dúvidas</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quais formatos de arquivo são aceitos?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O Veritas.AI aceita arquivos nos formatos PDF, DOCX (Microsoft Word) e TXT (texto simples). O tamanho máximo permitido é de 10MB por arquivo. Você também pode colar o texto diretamente na plataforma.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quanto tempo leva a análise?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O tempo de análise varia entre 30 e 60 segundos, dependendo do tamanho do trabalho e da complexidade do conteúdo. Nossa IA processa o documento de forma assíncrona para garantir uma análise completa e detalhada.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>O sistema detecta plágio?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O Veritas.AI fornece uma análise indicativa de originalidade e possíveis indícios de plágio, mas não substitui ferramentas especializadas de detecção de plágio. Recomendamos o uso complementar de ferramentas específicas para verificação mais rigorosa.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Como funciona a avaliação das normas ABNT?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A avaliação das normas ABNT é feita através da análise textual do conteúdo, verificando estrutura de citações, referências e formatação acadêmica. Note que a análise é textual e não visual, portanto não avalia aspectos como margens e espaçamento.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Posso usar a API do Veritas.AI?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! O Veritas.AI oferece uma API REST completa e documentada. Acesse a documentação interativa em /api/docs para ver todos os endpoints disponíveis, exemplos de uso e testar as requisições diretamente no navegador.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para Avaliar seu TCC?</h2>
+                <p>Receba uma análise completa e detalhada em minutos</p>
+                <a href="/home" class="btn-primary btn-large">Conheça o Sistema</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Veritas.AI®</h3>
+                    <p>Sistema de Avaliação de TCC com Inteligência Artificial</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Produto</h4>
+                        <a href="/home">Conheça o Sistema</a>
+                        <a href="/api/docs">API</a>
+                        <a href="#about">Sobre</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Recursos</h4>
+                        <a href="#evaluators">Avaliadores</a>
+                        <a href="#how-it-works">Como Funciona</a>
+                        <a href="#faq">FAQ</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Tecnologia</h4>
+                        <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI</a>
+                        <a href="https://www.perplexity.ai/" target="_blank">Perplexity AI</a>
+                        <a href="https://www.python.org/" target="_blank">Python</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Veritas.AI. Desenvolvido 100% em Python com FastAPI.</p>
+                <p>Projeto acadêmico e de portfólio por Leonardo Fonseca</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/landing/script.js"></script>
+</body>
+</html>
+
