@@ -1,0 +1,47 @@
+EXEMPLO DE TCC PARA TESTE DO VERITAS.AI
+
+Título: Análise da Aplicação de Metodologias Ágeis em Projetos de Software
+
+Resumo:
+Este trabalho apresenta uma análise sobre a aplicação de metodologias ágeis em projetos de desenvolvimento de software. O objetivo principal é investigar os benefícios e desafios enfrentados pelas equipes ao adotarem práticas ágeis como Scrum e Kanban. A metodologia utilizada foi a pesquisa bibliográfica combinada com estudos de caso em três empresas de tecnologia. Os resultados demonstram que a adoção de metodologias ágeis aumenta a produtividade em média 35% e melhora a satisfação dos clientes em 42%. Conclui-se que, apesar dos desafios iniciais de adaptação, as metodologias ágeis representam uma evolução significativa na gestão de projetos de software.
+
+Palavras-chave: Metodologias Ágeis, Scrum, Kanban, Gestão de Projetos, Desenvolvimento de Software.
+
+1. Introdução
+
+O desenvolvimento de software tem passado por transformações significativas nas últimas décadas. As metodologias tradicionais, baseadas em modelos em cascata, têm sido gradualmente substituídas por abordagens mais flexíveis e adaptativas. Neste contexto, as metodologias ágeis emergiram como uma alternativa promissora para lidar com a complexidade e dinamismo dos projetos modernos.
+
+O Manifesto Ágil, publicado em 2001, estabeleceu os princípios fundamentais que norteiam essas metodologias: indivíduos e interações mais que processos e ferramentas, software em funcionamento mais que documentação abrangente, colaboração com o cliente mais que negociação de contratos, e responder a mudanças mais que seguir um plano (BECK et al., 2001).
+
+2. Objetivos
+
+Este trabalho tem como objetivo geral analisar a aplicação de metodologias ágeis em projetos de desenvolvimento de software. Os objetivos específicos incluem:
+- Identificar os principais benefícios da adoção de metodologias ágeis
+- Mapear os desafios enfrentados durante a transição
+- Avaliar o impacto na produtividade e satisfação do cliente
+- Propor recomendações para implementação efetiva
+
+3. Metodologia
+
+A pesquisa foi conduzida em duas etapas. Primeiro, realizou-se uma revisão bibliográfica sistemática em bases de dados acadêmicas (Scopus, Web of Science, IEEE Xplore) utilizando os termos "agile methodologies", "scrum", "kanban" e "software development". Foram selecionados 45 artigos publicados entre 2015 e 2023.
+
+Na segunda etapa, conduziu-se estudos de caso em três empresas de tecnologia de médio porte que adotaram metodologias ágeis nos últimos cinco anos. Foram realizadas entrevistas semiestruturadas com gerentes de projeto e desenvolvedores, totalizando 18 participantes.
+
+4. Resultados
+
+Os resultados indicam que 87% das empresas analisadas reportaram aumento na produtividade após a adoção de metodologias ágeis. A satisfação do cliente melhorou em 42% dos casos, principalmente devido à maior transparência e envolvimento no processo de desenvolvimento.
+
+Entre os desafios identificados, destacam-se: resistência cultural (65%), dificuldade em estimar prazos (52%) e necessidade de treinamento contínuo (78%).
+
+5. Conclusão
+
+As metodologias ágeis representam uma evolução importante na gestão de projetos de software. Apesar dos desafios iniciais, os benefícios em termos de produtividade, qualidade e satisfação do cliente justificam o investimento na transição. Recomenda-se que as organizações adotem uma abordagem gradual, investindo em capacitação e promovendo uma cultura de colaboração.
+
+Referências:
+
+BECK, K. et al. Manifesto for Agile Software Development. 2001. Disponível em: https://agilemanifesto.org. Acesso em: 15 mar. 2023.
+
+SCHWABER, K.; SUTHERLAND, J. The Scrum Guide. 2020. Disponível em: https://scrumguides.org. Acesso em: 20 mar. 2023.
+
+ANDERSON, D. J. Kanban: Successful Evolutionary Change for Your Technology Business. Blue Hole Press, 2010.
+
