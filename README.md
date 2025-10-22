@@ -291,9 +291,9 @@ perplexity_model: str = "llama-3.1-sonar-large-128k-online"
 ```
 
 Modelos disponíveis:
-- `llama-3.1-sonar-small-128k-online` (mais rápido, menor custo)
-- `llama-3.1-sonar-large-128k-online` (balanceado)
-- `llama-3.1-sonar-huge-128k-online` (mais preciso, maior custo)
+- `sonar` (mais rápido, menor custo)
+- `sonar-reasoning-pro` (balanceado)
+- `sonar-deep-research` (mais preciso, maior custo)
 
 #### Ajustar Prompt de Avaliação
 
@@ -394,7 +394,7 @@ Para dúvidas ou problemas:
 
 **Veritas.AI v1.0.0** - Sistema de Avaliação de TCC com Inteligência Artificial
 
-Desenvolvido 100% em Python com FastAPI
+API 100% desenvolvida em Python com FastAPI
 
 [⬆ Voltar ao topo](#veritasai---sistema-de-avaliação-de-tcc-com-ia)
 
