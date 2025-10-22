@@ -37,7 +37,8 @@ python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 
 ## Acesse a Aplicação
 
-- **Interface Web:** http://localhost:8000
+- **Landing Page:** http://localhost:8000
+- **Aplicação de Avaliação:** http://localhost:8000/app
 - **API Docs:** http://localhost:8000/api/docs
 - **Health Check:** http://localhost:8000/api/evaluation/health
 
@@ -45,11 +46,13 @@ python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 
 ### Via Interface Web
 
-1. Abra http://localhost:8000
-2. Clique em "Colar Texto"
-3. Cole o conteúdo do arquivo `test_example.txt`
-4. Clique em "Avaliar TCC"
-5. Aguarde o resultado
+1. Abra http://localhost:8000 (landing page)
+2. Clique em "Avaliar TCC Agora"
+3. Escolha "Enviar Arquivo" ou "Colar Texto"
+4. Faça upload do seu TCC ou cole o texto
+5. Clique em "Avaliar TCC"
+6. Aguarde o resultado (30-60 segundos)
+7. Visualize os resultados e baixe o relatório
 
 ### Via API (curl)
 

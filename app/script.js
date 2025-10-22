@@ -13,6 +13,7 @@ const charCount = document.getElementById('charCount');
 const loadingOverlay = document.getElementById('loadingOverlay');
 const resultModal = document.getElementById('resultModal');
 const modalBody = document.getElementById('modalBody');
+const modalOverlay = document.getElementById('modalOverlay');
 const closeModal = document.getElementById('closeModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
 const downloadBtn = document.getElementById('downloadBtn');
@@ -63,7 +64,7 @@ function setupFileUpload() {
     
     // Click na área de drop
     dropArea.addEventListener('click', (e) => {
-        if (e.target !== selectFileBtn) {
+        if (e.target !== selectFileBtn && !e.target.closest('.btn-secondary')) {
             fileInput.click();
         }
     });
@@ -112,19 +113,22 @@ function handleFileSelect(file) {
     const isValid = allowedExtensions.some(ext => fileName.endsWith(ext));
     
     if (!isValid) {
-        showError('Tipo de arquivo nao permitido. Use PDF, DOCX ou TXT.');
+        showError('Tipo de arquivo não permitido. Use PDF, DOCX ou TXT.');
         return;
     }
     
     // Valida tamanho (10MB)
     const maxSize = 10 * 1024 * 1024;
     if (file.size > maxSize) {
-        showError('Arquivo muito grande. Tamanho maximo: 10MB.');
+        showError('Arquivo muito grande. Tamanho máximo: 10MB.');
         return;
     }
     
     currentFile = file;
-    fileInfo.textContent = `Arquivo selecionado: ${file.name} (${formatFileSize(file.size)})`;
+    fileInfo.innerHTML = `
+        <strong>Arquivo selecionado:</strong><br>
+        ${file.name} (${formatFileSize(file.size)})
+    `;
     fileInfo.classList.remove('hidden');
 }
 
@@ -222,74 +226,81 @@ async function evaluateText(text) {
 
 // Exibir resultados no modal
 function showResults(result) {
-    const scoreClass = getScoreClass(result.final_verdict.final_score);
-    
     const html = `
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <h3>Nota Final</h3>
-            <div class="score-badge ${scoreClass}">
-                ${result.final_verdict.final_score.toFixed(1)} / 10.0
+        <div class="result-section">
+            <div class="result-header">
+                <h3 class="result-title">${result.evaluator_1.name}</h3>
+                <span class="result-score">${result.evaluator_1.score.toFixed(1)}/3.0</span>
             </div>
+            <div class="result-content">${formatText(result.evaluator_1.analysis)}</div>
         </div>
         
-        <div class="evaluator-section">
-            <h3>${result.evaluator_1.name}</h3>
-            <p class="evaluator-score">Pontuacao: ${result.evaluator_1.score.toFixed(1)} / 3.0</p>
-            <div class="evaluator-analysis">${result.evaluator_1.analysis}</div>
+        <div class="result-section">
+            <div class="result-header">
+                <h3 class="result-title">${result.evaluator_2.name}</h3>
+                <span class="result-score">${result.evaluator_2.score.toFixed(1)}/2.0</span>
+            </div>
+            <div class="result-content">${formatText(result.evaluator_2.analysis)}</div>
         </div>
         
-        <div class="evaluator-section">
-            <h3>${result.evaluator_2.name}</h3>
-            <p class="evaluator-score">Pontuacao: ${result.evaluator_2.score.toFixed(1)} / 2.0</p>
-            <div class="evaluator-analysis">${result.evaluator_2.analysis}</div>
+        <div class="result-section">
+            <div class="result-header">
+                <h3 class="result-title">${result.evaluator_3.name}</h3>
+                <span class="result-score">${result.evaluator_3.score.toFixed(1)}/2.0</span>
+            </div>
+            <div class="result-content">${formatText(result.evaluator_3.analysis)}</div>
         </div>
         
-        <div class="evaluator-section">
-            <h3>${result.evaluator_3.name}</h3>
-            <p class="evaluator-score">Pontuacao: ${result.evaluator_3.score.toFixed(1)} / 2.0</p>
-            <div class="evaluator-analysis">${result.evaluator_3.analysis}</div>
+        <div class="result-section">
+            <div class="result-header">
+                <h3 class="result-title">Coerência Científica Geral</h3>
+                <span class="result-score">${(result.final_verdict.final_score - result.evaluator_1.score - result.evaluator_2.score - result.evaluator_3.score).toFixed(1)}/3.0</span>
+            </div>
+            <div class="result-content">${formatText(result.final_verdict.summary)}</div>
         </div>
         
-        <div class="final-verdict">
-            <h3>Parecer Final da Banca</h3>
-            <p style="margin-bottom: 1.5rem; line-height: 1.8;">${result.final_verdict.summary}</p>
-            
-            <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Recomendacoes</h4>
-            <p style="line-height: 1.8;">${result.final_verdict.recommendations}</p>
+        <div class="final-score">
+            <div class="final-score-value">${result.final_verdict.final_score.toFixed(1)}/10.0</div>
+            <div class="final-score-label">Nota Final</div>
+        </div>
+        
+        <div class="result-section">
+            <h3 class="result-title">Recomendações</h3>
+            <div class="result-content">${formatText(result.final_verdict.recommendations)}</div>
         </div>
     `;
     
     modalBody.innerHTML = html;
     resultModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
 
-function getScoreClass(score) {
-    if (score >= 8.5) return 'score-excellent';
-    if (score >= 7.0) return 'score-good';
-    if (score >= 5.0) return 'score-average';
-    return 'score-poor';
+function formatText(text) {
+    // Converte quebras de linha em parágrafos
+    return text.split('\n').filter(p => p.trim()).map(p => `<p>${p}</p>`).join('');
 }
 
 // Configuração do modal
 function setupModal() {
-    closeModal.addEventListener('click', () => {
-        resultModal.classList.remove('active');
-    });
-    
-    closeModalBtn.addEventListener('click', () => {
-        resultModal.classList.remove('active');
-    });
+    closeModal.addEventListener('click', closeModalHandler);
+    closeModalBtn.addEventListener('click', closeModalHandler);
+    modalOverlay.addEventListener('click', closeModalHandler);
     
     downloadBtn.addEventListener('click', () => {
         downloadReport();
     });
     
-    // Fechar ao clicar fora
-    resultModal.addEventListener('click', (e) => {
-        if (e.target === resultModal) {
-            resultModal.classList.remove('active');
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && resultModal.classList.contains('active')) {
+            closeModalHandler();
         }
     });
+}
+
+function closeModalHandler() {
+    resultModal.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 // Download do relatório
@@ -301,7 +312,7 @@ function downloadReport() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `avaliacao-tcc-${new Date().toISOString().split('T')[0]}.txt`;
+    a.download = `avaliacao-tcc-veritas-${new Date().toISOString().split('T')[0]}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -309,47 +320,55 @@ function downloadReport() {
 }
 
 function generateReportText(result) {
+    const coerenciaScore = (result.final_verdict.final_score - result.evaluator_1.score - result.evaluator_2.score - result.evaluator_3.score).toFixed(1);
+    
     return `
-VERITAS.AI - RELATORIO DE AVALIACAO DE TCC
-==========================================
+================================================================================
+                    VERITAS.AI - RELATÓRIO DE AVALIAÇÃO DE TCC
+================================================================================
 
 Data: ${new Date().toLocaleString('pt-BR')}
 
 NOTA FINAL: ${result.final_verdict.final_score.toFixed(1)} / 10.0
 
-==========================================
+================================================================================
 
 ${result.evaluator_1.name}
-Pontuacao: ${result.evaluator_1.score.toFixed(1)} / 3.0
+Pontuação: ${result.evaluator_1.score.toFixed(1)} / 3.0
 
 ${result.evaluator_1.analysis}
 
-==========================================
+================================================================================
 
 ${result.evaluator_2.name}
-Pontuacao: ${result.evaluator_2.score.toFixed(1)} / 2.0
+Pontuação: ${result.evaluator_2.score.toFixed(1)} / 2.0
 
 ${result.evaluator_2.analysis}
 
-==========================================
+================================================================================
 
 ${result.evaluator_3.name}
-Pontuacao: ${result.evaluator_3.score.toFixed(1)} / 2.0
+Pontuação: ${result.evaluator_3.score.toFixed(1)} / 2.0
 
 ${result.evaluator_3.analysis}
 
-==========================================
+================================================================================
 
-PARECER FINAL DA BANCA
+Coerência Científica Geral
+Pontuação: ${coerenciaScore} / 3.0
 
 ${result.final_verdict.summary}
 
-RECOMENDACOES
+================================================================================
+
+RECOMENDAÇÕES
 
 ${result.final_verdict.recommendations}
 
-==========================================
+================================================================================
 Gerado por Veritas.AI v1.0.0
+Sistema de Avaliação de TCC com Inteligência Artificial
+================================================================================
 `.trim();
 }
 

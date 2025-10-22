@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas.AI - Avaliar TCC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/app/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="/" class="logo">Veritas.AI®</a>
+                <a href="/" class="back-link">← Voltar para Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="app-header">
+                <h1 class="title">Avalie seu TCC</h1>
+                <p class="subtitle">Envie seu trabalho e receba uma análise completa de três avaliadores virtuais especializados</p>
+            </div>
+
+            <div class="card">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="file">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        Enviar Arquivo
+                    </button>
+                    <button class="tab-button" data-tab="text">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Colar Texto
+                    </button>
+                </div>
+
+                <div class="tab-content active" id="file-tab">
+                    <div class="file-upload-area" id="dropArea">
+                        <input type="file" id="fileInput" accept=".pdf,.docx,.txt" hidden>
+                        <div class="upload-icon">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                        </div>
+                        <p class="upload-text">Clique ou arraste seu arquivo aqui</p>
+                        <p class="upload-hint">PDF, DOCX ou TXT (máximo 10MB)</p>
+                        <button type="button" class="btn-secondary" id="selectFileBtn">Selecionar Arquivo</button>
+                    </div>
+                    <div id="fileInfo" class="file-info hidden"></div>
+                </div>
+
+                <div class="tab-content" id="text-tab">
+                    <textarea 
+                        id="textInput" 
+                        placeholder="Cole aqui o texto completo do seu TCC (mínimo 100 caracteres)..."
+                        rows="12"
+                    ></textarea>
+                    <div class="char-counter">
+                        <span id="charCount">0</span> caracteres
+                    </div>
+                </div>
+
+                <button type="button" class="btn-primary" id="evaluateBtn">
+                    <span class="btn-text">Avaliar TCC</span>
+                    <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Info Cards -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Metodologia</h3>
+                    <p>Avalia coerência metodológica, clareza dos objetivos e adequação dos métodos aplicados.</p>
+                    <span class="score">0-3 pontos</span>
+                </div>
+                <div class="info-card">
+                    <h3>Escrita Acadêmica</h3>
+                    <p>Verifica conformidade com normas ABNT, qualidade redacional e formatação de citações.</p>
+                    <span class="score">0-2 pontos</span>
+                </div>
+                <div class="info-card">
+                    <h3>Originalidade</h3>
+                    <p>Detecta possíveis indícios de plágio e avalia originalidade da contribuição científica.</p>
+                    <span class="score">0-2 pontos</span>
+                </div>
+                <div class="info-card">
+                    <h3>Coerência Científica</h3>
+                    <p>Avalia qualidade da base teórica, sustentação das conclusões e relevância científica.</p>
+                    <span class="score">0-3 pontos</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Resultados -->
+    <div id="resultModal" class="modal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Resultado da Avaliação</h2>
+                <button class="close-btn" id="closeModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Conteúdo será inserido dinamicamente -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="closeModalBtn">Fechar</button>
+                <button class="btn-primary" id="downloadBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Baixar Relatório
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p class="loading-text">Analisando seu TCC...</p>
+            <p class="loading-subtext">Isso pode levar alguns instantes</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Veritas.AI. Desenvolvido 100% em Python com FastAPI.</p>
+        </div>
+    </footer>
+
+    <script src="/static/app/script.js"></script>
+</body>
+</html>
+
