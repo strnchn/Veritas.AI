@@ -188,21 +188,11 @@ Veritas.AI/
 
 ### Screenshots
 
-```
-┌─────────────────────────────────────┐
-│  Landing Page                       │
-│  • Design moderno e minimalista     │
-│  • Apresentação dos avaliadores     │
-│  • Call-to-action para aplicação    │
-└─────────────────────────────────────┘
+<img width="1919" height="806" alt="image" src="https://github.com/user-attachments/assets/f6511380-3f16-4801-96d5-008a4cdd00e0" />
 
-┌─────────────────────────────────────┐
-│  Aplicação de Avaliação             │
-│  • Upload de arquivo ou texto       │
-│  • Interface intuitiva              │
-│  • Resultados em modal interativo   │
-└─────────────────────────────────────┘
-```
+
+<img width="1893" height="913" alt="image" src="https://github.com/user-attachments/assets/4e17b92d-a841-46cd-9393-ce7a3a99f561" />
+
 
 ---
 
@@ -301,9 +291,9 @@ perplexity_model: str = "llama-3.1-sonar-large-128k-online"
 ```
 
 Modelos disponíveis:
-- `llama-3.1-sonar-small-128k-online` (mais rápido, menor custo)
-- `llama-3.1-sonar-large-128k-online` (balanceado)
-- `llama-3.1-sonar-huge-128k-online` (mais preciso, maior custo)
+- `sonar` (mais rápido, menor custo)
+- `sonar-reasoning-pro` (balanceado)
+- `sonar-deep-research` (mais preciso, maior custo)
 
 #### Ajustar Prompt de Avaliação
 
@@ -404,7 +394,7 @@ Para dúvidas ou problemas:
 
 **Veritas.AI v1.0.0** - Sistema de Avaliação de TCC com Inteligência Artificial
 
-Desenvolvido 100% em Python com FastAPI
+API 100% desenvolvida em Python com FastAPI
 
 [⬆ Voltar ao topo](#veritasai---sistema-de-avaliação-de-tcc-com-ia)
 
