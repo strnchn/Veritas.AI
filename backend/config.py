@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     
     # Perplexity API
     perplexity_api_url: str = "https://api.perplexity.ai/chat/completions"
-    perplexity_model: str = "llama-3.1-sonar-large-128k-online"
+    perplexity_model: str = "sonar"
     
     class Config:
         env_file = ".env"

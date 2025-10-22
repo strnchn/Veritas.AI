@@ -5,7 +5,6 @@ import os
 from typing import Tuple
 from pathlib import Path
 import PyPDF2
-import pdfplumber
 from docx import Document
 
 
@@ -27,34 +26,29 @@ class FileProcessor:
     @staticmethod
     def extract_text_from_pdf(file_path: str) -> str:
         """
-        Extrai texto de arquivo PDF
-        Tenta primeiro com pdfplumber, depois com PyPDF2 como fallback
+        Extrai texto de arquivo PDF usando PyPDF2
         """
         text = ""
         
         try:
-            # Tentativa 1: pdfplumber (melhor para PDFs complexos)
-            with pdfplumber.open(file_path) as pdf:
-                for page in pdf.pages:
-                    page_text = page.extract_text()
-                    if page_text:
-                        text += page_text + "\n\n"
-            
-            if text.strip():
-                return text.strip()
-        except Exception as e:
-            print(f"Erro com pdfplumber: {e}")
-        
-        try:
-            # Tentativa 2: PyPDF2 (fallback)
             with open(file_path, 'rb') as file:
                 pdf_reader = PyPDF2.PdfReader(file)
-                for page in pdf_reader.pages:
-                    page_text = page.extract_text()
-                    if page_text:
-                        text += page_text + "\n\n"
+                
+                # Extrai texto de todas as páginas
+                for page_num, page in enumerate(pdf_reader.pages):
+                    try:
+                        page_text = page.extract_text()
+                        if page_text and page_text.strip():
+                            text += page_text + "\n\n"
+                    except Exception as e:
+                        print(f"Aviso: Erro ao extrair página {page_num + 1}: {e}")
+                        continue
+            
+            if not text.strip():
+                raise Exception("Não foi possível extrair texto do PDF. O arquivo pode estar vazio ou protegido.")
             
             return text.strip()
+            
         except Exception as e:
             raise Exception(f"Erro ao extrair texto do PDF: {str(e)}")
     

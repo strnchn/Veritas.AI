@@ -61,7 +61,7 @@ Sistema completo de avaliação de Trabalhos de Conclusão de Curso (TCC) utiliz
 ## Estrutura do Projeto
 
 ```
-veritas-ai/
+veritas.ai/
 ├── backend/
 │   ├── main.py                 # Aplicação FastAPI principal
 │   ├── config.py               # Configurações
@@ -121,7 +121,7 @@ veritas-ai/
    
    Ou manualmente:
    ```bash
-   python3.11 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+   python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
    ```
 
 5. **Acesse a aplicação**

@@ -32,7 +32,7 @@ pip3 install -r requirements.txt
 Ou manualmente:
 
 ```bash
-python3.11 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 ## Acesse a Aplicação
